@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Pink Button Edges</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet"> <!-- Adding Lacquer font -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Lacquer', sans-serif; /* Applying Lacquer font */
+            background-image: url('https://img.freepik.com/free-vector/galaxy-background-with-moon-neon_125540-126.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+        }
+        .text {
+            margin-bottom: 20px;
+            font-size: 30px; /* Larger font size */
+            color: white;
+            text-shadow: 0 0 5px #ff66b2, 0 0 10px #ff66b2, 0 0 15px #ff66b2; /* Pink glowing text */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff66b2; /* Soft pink background for the button */
+            color: white;
+            transition: all 0.3s ease;
+            position: relative; /* Required for pseudo-elements */
+        }
+
+        /* Glowing pink edges effect */
+        button::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 8px; /* Slightly larger than the button's border-radius */
+            background: linear-gradient(45deg, #ff66b2, #ff3399, #ff66b2); /* Pink gradient glow */
+            z-index: -1; /* Behind the button */
+            filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        button:hover::before {
+            opacity: 1; /* Show glow on hover */
+        }
+
+        button:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">I have something for you</div>
+    <button onclick="window.location.href='page2.html'">Click Me!</button>
+</html>
